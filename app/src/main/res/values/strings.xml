@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExpenseTracker</string>
+    <string name="income">Income</string>
+    <string name="_5000">+5000</string>
+    <string name="expenses">Expenses</string>
+    <string name="_600">-600</string>
+</resources>
