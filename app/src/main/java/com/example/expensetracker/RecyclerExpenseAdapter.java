@@ -52,10 +52,10 @@ public class RecyclerExpenseAdapter extends RecyclerView.Adapter<RecyclerExpense
         String expType = arrExpense.get(position).getExpenseType();
 
         if(expType.equals("Expense")){
-            holder.txtAmount.setTextColor(ContextCompat.getColor(context, R.color.red)); // Change to your desired color resource
+            holder.txtAmount.setTextColor(ContextCompat.getColor(context, R.color.light_red)); // Change to your desired color resource
         }
         else{
-            holder.txtAmount.setTextColor(ContextCompat.getColor(context, R.color.green)); // Change to your desired color resource
+            holder.txtAmount.setTextColor(ContextCompat.getColor(context, R.color.green_light)); // Change to your desired color resource
         }
 
         holder.llrow.setOnLongClickListener(new View.OnLongClickListener() {
