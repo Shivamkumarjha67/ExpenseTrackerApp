@@ -1,6 +1,8 @@
 package com.example.expensetracker
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#ED5050")))
+
         databaseHelper = DatabaseHelper.getInstance(this)
         recyclerExpenses = binding.recyclerView
         recyclerExpenses.layoutManager = GridLayoutManager(this, 1)
@@ -31,39 +35,6 @@ class MainActivity : AppCompatActivity() {
         fabAdd = binding.fab
 
         showExpenses()
-
-//        fabAdd.setOnClickListener {
-//            val dialog = Dialog(this@MainActivity)
-//            dialog.setContentView(R.layout.add_expense_layout)
-//
-//            val edtTitle : EditText = dialog.findViewById(R.id.edtTitle)
-//            val edtAmount : EditText = dialog.findViewById(R.id.edtAmount)
-//            val edtRadioExpense : RadioButton = dialog.findViewById(R.id.radioExpense)
-//            val btnAdd : Button = dialog.findViewById(R.id.btnAdd)
-//
-//            btnAdd.setOnClickListener {
-//                val radioButtonValue = if(edtRadioExpense.isChecked) "Expense" else "Income"
-//                val title = edtTitle.text.toString()
-//                val amountStr = edtAmount.text.toString()
-//
-//                if(title.isNotBlank() && amountStr.isNotBlank()) {
-//                    try {
-//                        val amount = amountStr.toInt()
-//                        val newExpenses = Expense(title, amount, radioButtonValue)
-//
-//                        databaseHelper.expenseDao().addExpense(newExpenses)
-//                        Toast.makeText(this@MainActivity, "Saved", Toast.LENGTH_SHORT).show()
-//                        showExpenses()
-//                        dialog.dismiss()
-//                    } catch(e : NumberFormatException) {
-//                        Toast.makeText(this, "Invalid Amount Format!", Toast.LENGTH_SHORT).show()
-//                    }
-//                } else {
-//                    Toast.makeText(this, "Fields can not be empty", Toast.LENGTH_SHORT).show()
-//                }
-//                dialog.show()
-//            }
-//        }
 
         fabAdd.setOnClickListener {
             val dialog = Dialog(this@MainActivity)
